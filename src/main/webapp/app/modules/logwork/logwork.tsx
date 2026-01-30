@@ -3,7 +3,7 @@ import '../home/home.scss';
 import './logwork.scss';
 import React, { useState, useEffect } from 'react';
 import { durationToHours, formatDuration, convertToIsoDuration, isValidDuration } from 'app/shared/util/date-utils';
-import { Translate } from 'react-jhipster';
+import { Translate, translate } from 'react-jhipster';
 import { connect } from 'react-redux';
 import { MemberList, ProjectList, TimeEntries } from 'app/modules/logwork/logwork-components';
 import { Button, Row, Col, Form, FormGroup, Label, Input } from 'reactstrap';
@@ -82,7 +82,7 @@ export const LogWork = (props: ILogWorkProp) => {
   const addNewEntry = () => {
     // Validate duration input
     if (!duration || !isValidDuration(duration)) {
-      setErrorMessage('Invalid duration format. Use formats like: 2h 30m, 2:30, 90m, or 2h');
+      setErrorMessage(translate('imanagestuffApp.timeEntry.validation.invalidDuration'));
       return;
     }
 
